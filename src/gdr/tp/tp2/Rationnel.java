@@ -123,6 +123,6 @@ public class Rationnel {
     }
     
     public String toString(){
-        return "("+this.getNum()+"/"+this.getDenom()+")";
+        return "Rationnel: ("+this.getNum()+"/"+this.getDenom()+")";
     }
 }
