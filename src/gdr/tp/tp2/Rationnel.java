@@ -40,7 +40,7 @@ public class Rationnel {
      * @return la représentation réelle
      */
     public double getReal() {
-        return this.getNum() / this.getDenom();
+        return (double)this.getNum() / this.getDenom();
     }
 
     /**

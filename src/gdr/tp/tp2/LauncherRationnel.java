@@ -16,6 +16,7 @@ public class LauncherRationnel {
         
         disp(r1.toString());
         disp(r2.toString());
+        sp();
         
         Rationnel r3 = r1.add(r2);
         Rationnel r4 = r1.minus(r2);
@@ -26,12 +27,14 @@ public class LauncherRationnel {
         disp(r4.toString());
         disp(r5.toString());
         disp(r6.toString());
+        sp();
         
         Rationnel r7 = r1.reverse();
         Rationnel r8 = r1.opposite();
         
         disp(r7.toString());
         disp(r8.toString());
+        sp();
         
         double r9 = r1.getReal();
         disp(r1.toString()+" -> "+r1.getReal());
@@ -39,5 +42,8 @@ public class LauncherRationnel {
     
     public static void disp(String s){
         System.out.println(s);
+    }
+    public static void sp(){
+        System.out.print("\n");
     }
 }
