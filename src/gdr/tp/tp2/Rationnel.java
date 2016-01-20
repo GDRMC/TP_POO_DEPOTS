@@ -14,9 +14,21 @@ public class Rationnel {
      * @param num Numérateur
      * @param denom Dénominateur
      */
-    public Rationnel(int num, int denom) {
-        this.num = num;
-        this.denom = denom;
+    private Rationnel(int num, int denom) throws Exception {
+        if(denom!=0){
+           this.num = num;
+        this.denom = denom; 
+        } else {
+            throw new Exception("Impossible de créer l'objet");
+        }
+    }
+    
+    public static Rationnel createRationnel(int num, int denom) throws Exception{
+        if(denom!=0){
+            return new Rationnel(num,denom);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -60,18 +72,18 @@ public class Rationnel {
      * Retourne l'inverse d'un rationnel
      * @return l'inverse du rationnel
      */
-    public Rationnel reverse() {
+    public Rationnel reverse() throws Exception {
         int invNum = this.getNum();
         int invDenom = this.getDenom();
-        return new Rationnel(invDenom, invNum);
+        return createRationnel(invDenom, invNum);
     }
     
     /**
      * Retourne l'opposé d'un rationnel
      * @return l'opposé du rationnel
      */
-    public Rationnel opposite(){
-        return new Rationnel(-this.getNum(),this.getDenom());
+    public Rationnel opposite() throws Exception{
+        return createRationnel(-this.getNum(),this.getDenom());
     }
 
     /**
@@ -79,13 +91,13 @@ public class Rationnel {
      * @param r rationnel à ajouter
      * @return le résultat de l'addition
      */
-    public Rationnel add(Rationnel r) {
+    public Rationnel add(Rationnel r) throws Exception{
         if (this.getDenom() != r.getDenom()) {
-            Rationnel gadd = new Rationnel(this.getNum() * r.getDenom(), this.getDenom() * r.getDenom());
-            Rationnel dadd = new Rationnel(r.getNum() * this.getDenom(), r.getDenom() * this.getDenom());
-            return new Rationnel(gadd.getNum() + dadd.getNum(), dadd.getDenom());
+            Rationnel gadd = createRationnel(this.getNum() * r.getDenom(), this.getDenom() * r.getDenom());
+            Rationnel dadd = createRationnel(r.getNum() * this.getDenom(), r.getDenom() * this.getDenom());
+            return createRationnel(gadd.getNum() + dadd.getNum(), dadd.getDenom());
         } else {
-            return new Rationnel(this.getNum() + r.getNum(), r.getDenom());
+            return createRationnel(this.getNum() + r.getNum(), r.getDenom());
         }
     }
 
@@ -94,13 +106,13 @@ public class Rationnel {
      * @param r rationnel à soustraire
      * @return le résultat de la soustraction
      */
-    public Rationnel minus(Rationnel r) {
+    public Rationnel minus(Rationnel r) throws Exception{
         if (this.getDenom() != r.getDenom()) {
-            Rationnel gadd = new Rationnel(this.getNum() * r.getDenom(), this.getDenom() * r.getDenom());
-            Rationnel dadd = new Rationnel(r.getNum() * this.getDenom(), r.getDenom() * this.getDenom());
-            return new Rationnel(gadd.getNum() - dadd.getNum(), dadd.getDenom());
+            Rationnel gadd = createRationnel(this.getNum() * r.getDenom(), this.getDenom() * r.getDenom());
+            Rationnel dadd = createRationnel(r.getNum() * this.getDenom(), r.getDenom() * this.getDenom());
+            return createRationnel(gadd.getNum() - dadd.getNum(), dadd.getDenom());
         } else {
-            return new Rationnel(this.getNum() - r.getNum(), r.getDenom());
+            return createRationnel(this.getNum() - r.getNum(), r.getDenom());
         }
     }
 
@@ -109,8 +121,8 @@ public class Rationnel {
      * @param r rationnel à multiplier
      * @return le résultat de la soustraction
      */
-    public Rationnel multiply(Rationnel r) {
-        return new Rationnel(this.getNum() * r.getNum(), this.getDenom() * r.getDenom());
+    public Rationnel multiply(Rationnel r) throws Exception {
+        return createRationnel(this.getNum() * r.getNum(), this.getDenom() * r.getDenom());
     }
 
     /**
@@ -118,8 +130,8 @@ public class Rationnel {
      * @param r rationnel à diviser
      * @return le résultat de la division
      */
-    public Rationnel divide(Rationnel r) {
-        return new Rationnel(this.getNum() * r.reverse().getNum(), this.getDenom() * r.reverse().getDenom());
+    public Rationnel divide(Rationnel r) throws Exception {
+        return createRationnel(this.getNum() * r.reverse().getNum(), this.getDenom() * r.reverse().getDenom());
     }
     
     public String toString(){

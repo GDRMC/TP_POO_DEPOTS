@@ -1,18 +1,20 @@
 package gdr.tp.tp2;
 
+import static gdr.tp.tp2.Rationnel.createRationnel;
+
 /**
  * Lanceur du programme de test de la classe Relationnel
  * @author USER
  */
-public class LauncherRationnel {
+public class LauncherRationnel{
 
     /**
      * Fonction main
      * @param args
      */
-    public static void main(String[]args){
-        Rationnel r1 = new Rationnel(2, 3);
-        Rationnel r2 = new Rationnel(4, 5);
+    public static void main(String[]args) throws Exception{
+        Rationnel r1 = createRationnel(2, 3);
+        Rationnel r2 = createRationnel(4, 5);
         
         disp(r1.toString());
         disp(r2.toString());
@@ -43,6 +45,7 @@ public class LauncherRationnel {
     public static void disp(String s){
         System.out.println(s);
     }
+    
     public static void sp(){
         System.out.print("\n");
     }

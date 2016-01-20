@@ -1,5 +1,7 @@
 package gdr.tp.tp2;
 
+import static gdr.tp.tp2.Rationnel.createRationnel;
+
 @Deprecated
 public class TestRationnel
 {
@@ -7,14 +9,14 @@ public class TestRationnel
 	// Le principe est simple : vous appelez la methode a tester
 	// avec certaines valeurs et vous verifiez que le resultat
 	// retourn'e est correct.
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        Rationnel r1 = new Rationnel(2, 3);
-        Rationnel r2 = new Rationnel(4, 5);
+        Rationnel r1 = createRationnel(2, 3);
+        Rationnel r2 = createRationnel(4, 5);
 		
 		// exemple : test pour l'addition de r1 et r2
         Rationnel resPlus = r1.add(r2);
-        Rationnel resPlusRef = new Rationnel(22, 15);
+        Rationnel resPlusRef = createRationnel(22, 15);
         if (!resPlus.equals(resPlusRef))
         {
             System.out.println("Pb sur l'addition");
