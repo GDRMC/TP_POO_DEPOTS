@@ -126,8 +126,8 @@ public class SequenceMonome {
     }
 
     /**
-     * Analyse le nombre de degrés positifs des monômes d'un tableau
-     * bidimensionnel entré en paramètre
+     * Analyse les monômes valides d'un tableau bidimensionnel de monômes
+     * (si coeff > 0 et degré > 0)
      *
      * @param listeNC tableau bidimensionnel de monômes
      * @return nombre de degrés positifs des monômes
