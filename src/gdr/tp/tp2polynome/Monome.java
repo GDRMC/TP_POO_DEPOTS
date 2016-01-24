@@ -70,6 +70,7 @@ public class Monome
         }
     }
 	
+    @Override
     public String toString()
     {
         String affichage = "";
