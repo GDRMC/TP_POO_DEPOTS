@@ -8,11 +8,13 @@ public class CompteBancaire {
     private double solde;
     private Client client;
     
+    private static int nbComptes = 0;
+    
     public CompteBancaire(double soldeInitial, Client client){
         this.client = client;
         this.solde = soldeInitial;
         //genere un numéro de compte aléatoire
-        this.numero = randInt(0,9999999);
+        this.numero = this.genererNumeroCompte();
     }
     
     public CompteBancaire(int numero, Client client){
@@ -60,11 +62,20 @@ public class CompteBancaire {
         return ok;
     }
     
+    public int genererNumeroCompte(){
+        int nbNouveauCompte = 0;
+        while(nbNouveauCompte<this.nbComptes++){
+            nbNouveauCompte++;
+        }
+        return nbNouveauCompte;
+    }
+    
     @Override
     public String toString(){
         return "Compte n° "+this.numero+" de Mr/Mme/Mlle "+this.client.donneNom()+" : \n - Solde: "+this.solde+" €";
     }
     
+    @Deprecated
     public static int randInt(int min, int max) {
         int rand = min + (int)(Math.random() * ((max - min) + 1));
         return rand;
