@@ -20,7 +20,7 @@ public class Client {
         boolean ok = true;
         //vérifie l'existance du compte
         for(int i = 0;i<comptes.size();i++){
-            if(compte.equals(this.comptes.get(i).donneNumero())){
+            if( compte.donneNumero() == this.comptes.get(i).donneNumero() ){
                 ok = false;
             }
         }
