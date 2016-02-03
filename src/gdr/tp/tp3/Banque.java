@@ -54,11 +54,16 @@ public class Banque {
     public Entreprise creerEntreprise(String nomEntreprise, int numeroSIRET, String adresse) {
         //this.clients.add(new Entreprise(nomEntreprise, adresse, numeroSIRET));
         Entreprise e = new Entreprise(nomEntreprise, adresse, numeroSIRET);
-        if (!(this.rechercheClient(nomEntreprise) == e)) {
-            //si le client n'existe pas
-            this.clients.add(e);
+        boolean ok = false;
+        if (this.rechercheClient(nomEntreprise) == null) {
+            ok = true;
         }
-        return e;
+        if (ok) {
+            this.clients.add(e);
+            return e;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -135,8 +140,7 @@ public class Banque {
      */
     public ArrayList<CompteBancaire> rechercheCompte(String nomClient) {
         Client c = this.rechercheClient(nomClient);
-        boolean clientExiste = this.clientExiste(c);
-        if (clientExiste) {
+        if (c!=null) {
             return c.donneComptes();
         } else {
             return null;
@@ -206,35 +210,5 @@ public class Banque {
         } else {
             return false;
         }
-    }
-
-    /**
-     * Vérifie l'existance d'un client Particulier ou Entreprise dans la liste
-     * des clients
-     *
-     * @param c Particulier ou Entreprise
-     * @return booléen du test d'existance
-     */
-    @Deprecated
-    public boolean clientExiste(Client c) {
-        boolean existe = false;
-        for (int i = 0; i < this.clients.size(); i++) {
-            if (c instanceof Particulier) {
-                //si le client recherché est un particulier
-                Particulier p = (Particulier) c;
-                Particulier b = (Particulier) this.clients.get(i);
-                if (p.donneNom().equals(b.donneNom()) && p.donnePrenom().equals(b.donnePrenom())) {
-                    existe = true;
-                }
-            } else if (c instanceof Entreprise) {
-                //si le client recherché est une entreprise
-                Entreprise e = (Entreprise) c;
-                Entreprise b = (Entreprise) this.clients.get(i);
-                if (e.donneNom().equals(b.donneNom()) && e.donneNumeroSIRET() == b.donneNumeroSIRET()) {
-                    existe = true;
-                }
-            }
-        }
-        return existe;
     }
 }
