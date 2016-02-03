@@ -3,7 +3,7 @@ package gdr.tp.tp2polynome;
 
 /**
  * Repr&eacute;sente une s&eacute;rie de test pour la classe <code>Polynome</code>.
- */ 
+ */
 public class TestPolynome
 {
     public static void main(String[] args)
@@ -43,5 +43,6 @@ public class TestPolynome
             System.out.println("Deriv'ee de " + p1 + " = " + derivation);
         }
         */
+        System.out.println("Fin du test");
     }
 }

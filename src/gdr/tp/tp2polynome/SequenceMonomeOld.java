@@ -5,14 +5,14 @@ package gdr.tp.tp2polynome;
  *
  * @author GDR
  */
-public class SequenceMonome {
+public class SequenceMonomeOld {
 
     private int[][] liste;
 
     /**
      * Définit une séquence de monômes de taille nulle
      */
-    public SequenceMonome() {
+    public SequenceMonomeOld() {
         this.liste = new int[0][2];
     }
 
@@ -22,7 +22,7 @@ public class SequenceMonome {
      *
      * @param listeCoeffDeg tableau à deux dimensions de monômes
      */
-    public SequenceMonome(int[][] listeCoeffDeg) {
+    public SequenceMonomeOld(int[][] listeCoeffDeg) {
         //compte le nombre de monômes ayant un degré supérieur à 0
         //this.liste = listeCoeffDeg;
 
