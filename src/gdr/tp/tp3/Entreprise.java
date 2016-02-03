@@ -9,5 +9,8 @@ public class Entreprise extends Client {
         this.numeroSIRET = numeroSIRET;
     }
     
+    public int donneNumeroSIRET(){
+        return this.numeroSIRET;
+    }
     
 }

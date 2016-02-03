@@ -15,6 +15,11 @@ public class CompteBancaireRemunere extends CompteBancaire {
         this.tauxInteret = tauxInteretMensuel;
     }
     
+    public CompteBancaireRemunere(double soldeInitial, double tauxInteret, Client c) {
+        super(soldeInitial,c);
+        this.tauxInteret = tauxInteret;
+    }
+    
     public CompteBancaireRemunere(Client c){
         super(0, c);
         this.tauxInteret = TAUX_INTERET_MENSUEL_DEFAUT;

@@ -63,11 +63,7 @@ public class CompteBancaire {
     }
     
     public int genererNumeroCompte(){
-        int nbNouveauCompte = 0;
-        while(nbNouveauCompte<this.nbComptes++){
-            nbNouveauCompte++;
-        }
-        return nbNouveauCompte;
+        return this.nbComptes++;
     }
     
     @Override

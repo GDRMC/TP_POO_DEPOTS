@@ -9,5 +9,7 @@ public class Particulier extends Client{
         this.prenom = prenom;
     }
     
-
+    public String donnePrenom(){
+        return this.prenom;
+    }
 }
