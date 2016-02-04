@@ -48,18 +48,32 @@ public class TestBanque
     //test nombre de comptes maxi par client > 3 part en erreur
     Banque banque2 = new Banque("Banque Picsou");
     Particulier p1 = banque2.creerParticulier("Dupont", "Jean-Daniel", "Poitiers");
-    CompteBancaireRemunere cpt1 = banque.creerCompteRemunere(1685.74, 4.6, "Dupont");
-    CompteBancaireRemunere cpt2 = banque.creerCompteRemunere(764.94, 4.6, "Dupont");
-    CompteBancaireRemunere cpt3 = banque.creerCompteRemunere(78924.45, 4.6, "Dupont");
-    CompteBancaireRemunere cpt4 = banque.creerCompteRemunere(148.94, 4.6, "Dupont");
+    CompteBancaireRemunere cpt1 = banque2.creerCompteRemunere(1685.74, 4.6, "Dupont");
+    CompteBancaireRemunere cpt2 = banque2.creerCompteRemunere(764.94, 4.6, "Dupont");
+    CompteBancaireRemunere cpt3 = banque2.creerCompteRemunere(78924.45, 4.6, "Dupont");
+    CompteBancaireRemunere cpt4 = banque2.creerCompteRemunere(148.94, 4.6, "Dupont");
     if(banque2.rechercheCompte("Dupont").size()>3){
         System.out.println("TEST Q8: Erreur, le client Martin possède plus de 3 comptes");
         System.exit(-1);
     }
     
+    //test suppression de client s'il possède des comptes
     banque2.supprimerClient("Dupont");
     if(banque2.rechercheClient("Dupont") == null){
         System.out.println("Test Q8: Erreur, un client possèdant des comptes a été supprimé");
+        System.exit(-1);
+    }
+    
+    double montant = 10;
+    double crdav = banque.rechercheCompte("Durand").get(0).consulter();
+    double debav = banque2.rechercheCompte("Dupont").get(0).consulter();
+    banque2.transfertInterBancaire(2, banque, 0, montant);
+    double crdap = banque.rechercheCompte("Durand").get(0).consulter();
+    double debap = banque2.rechercheCompte("Dupont").get(0).consulter();
+    System.out.println(debav+" "+crdav+" > "+debap+" "+crdap);
+    if((debap != debav-(montant+5)) || crdap != crdav+montant){
+        System.out.println("Test Q8: Erreur, le tranfert interbancaire ne satisfait pas les conditions énoncées");
+        System.out.println(debav+" "+crdav+" > "+debap+" "+crdap);
         System.exit(-1);
     }
   }
