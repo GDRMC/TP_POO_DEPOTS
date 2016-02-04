@@ -152,12 +152,14 @@ public class Banque {
      */
     public boolean supprimerClient(String nomClient) {
         boolean peutsupprimer = true;
-        if(this.rechercheCompte(nomClient).size()>0){
+        if(this.rechercheClient(nomClient) != null){
             peutsupprimer = false;
         }
-        for (int i = 0; i < this.clients.size(); i++) {
-            if (this.clients.get(i).donneNom().equals(nomClient)) {
-                this.clients.remove(i);
+        if(peutsupprimer){
+            for (int i = 0; i < this.clients.size(); i++) {
+                if(this.clients.get(i).donneNom().equals(nomClient)){
+                    this.clients.remove(i);
+                }
             }
         }
         return peutsupprimer;
