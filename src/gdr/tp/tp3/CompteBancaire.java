@@ -71,10 +71,4 @@ public class CompteBancaire {
         return "Compte n° "+this.numero+" de Mr/Mme/Mlle "+this.client.donneNom()+" : \n - Solde: "+this.solde+" €";
     }
     
-    @Deprecated
-    public static int randInt(int min, int max) {
-        int rand = min + (int)(Math.random() * ((max - min) + 1));
-        return rand;
-    }
-    
 }
