@@ -41,5 +41,26 @@ public class TestBanque
         System.out.println("Probleme sur creation intiale d'un compte avec client inconnu");
         System.exit(-1);        
     }   
+    
+    
+    //TEST MANUELS QUESTION 8
+    
+    //test nombre de comptes maxi par client > 3 part en erreur
+    Banque banque2 = new Banque("Banque Picsou");
+    Particulier p1 = banque2.creerParticulier("Dupont", "Jean-Daniel", "Poitiers");
+    CompteBancaireRemunere cpt1 = banque.creerCompteRemunere(1685.74, 4.6, "Dupont");
+    CompteBancaireRemunere cpt2 = banque.creerCompteRemunere(764.94, 4.6, "Dupont");
+    CompteBancaireRemunere cpt3 = banque.creerCompteRemunere(78924.45, 4.6, "Dupont");
+    CompteBancaireRemunere cpt4 = banque.creerCompteRemunere(148.94, 4.6, "Dupont");
+    if(banque2.rechercheCompte("Dupont").size()>3){
+        System.out.println("TEST Q8: Erreur, le client Martin possède plus de 3 comptes");
+        System.exit(-1);
+    }
+    
+    banque2.supprimerClient("Dupont");
+    if(banque2.rechercheClient("Dupont") == null){
+        System.out.println("Test Q8: Erreur, un client possèdant des comptes a été supprimé");
+        System.exit(-1);
+    }
   }
 }
