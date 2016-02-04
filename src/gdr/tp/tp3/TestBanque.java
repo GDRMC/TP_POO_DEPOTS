@@ -3,7 +3,12 @@ package gdr.tp.tp3;
 /** classe de test pour CompteBancaire */
 public class TestBanque
 {
-  public static void main(String[] args)
+
+    /**
+     * Test classe Banque
+     * @param args arguments vm
+     */
+    public static void main(String[] args)
   {
     Banque banque = new Banque("CLC");
 

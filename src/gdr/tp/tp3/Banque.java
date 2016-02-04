@@ -2,6 +2,10 @@ package gdr.tp.tp3;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author USER
+ */
 public class Banque {
 
     private String nomBanque;
@@ -189,25 +193,6 @@ public class Banque {
      * @return état de la transaction
      */
     public boolean transfertInterBancaire(int numeroCpteDebiteur, Banque banqueCrediteur, int numeroCpteCrediteur, double montant) {
-        /*
-        CompteBancaire deb = this.rechercheCompte(numeroCpteDebiteur);
-        CompteBancaire crd = banqueCrediteur.rechercheCompte(numeroCpteCrediteur);
-        boolean operation = false;
-        //effectue les opérations de transfert
-        if (deb != null && crd != null) {
-            //vérifie si le montant du débiteur est supérieur au montant à retirer
-            if (deb.consulter() < montant + 5.0) {
-                //montant invalide
-                operation = false;
-            } else {
-                //montant valide
-                deb.debiter(montant + 5.0);
-                crd.crediter(montant);
-                operation = true;
-            }
-        }
-        return operation;
-                */
         if (this.equals(banqueCrediteur)) {
             return this.rechercheCompte(numeroCpteDebiteur).transferer(banqueCrediteur.rechercheCompte(numeroCpteCrediteur),(int)montant);
         }

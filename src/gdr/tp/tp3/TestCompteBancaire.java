@@ -3,7 +3,12 @@ package gdr.tp.tp3;
 /** classe de test pour CompteBancaire */
 public class TestCompteBancaire
 {
-  public static void main(String[] args)
+
+    /**
+     * Test CompteBancaire
+     * @param args arguments vm
+     */
+    public static void main(String[] args)
   {
     Client durand = new Client("Durand", "La Rochelle");
     Client martin = new Client("Martin", "Nantes");
