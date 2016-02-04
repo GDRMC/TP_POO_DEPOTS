@@ -31,9 +31,11 @@ public class Banque {
         boolean insert = false;
         CompteBancaireRemunere compte = null;
         if (c != null) {
-            compte = new CompteBancaireRemunere(soldeInitial, tauxInteret, c);
-            this.comptes.add(compte);
-            insert = true;
+            if(this.rechercheCompte(nomClient).size() < 3){
+                compte = new CompteBancaireRemunere(soldeInitial, tauxInteret, c);
+                this.comptes.add(compte);
+                insert = true;
+            }
         }
         if (insert) {
             return compte;
@@ -111,18 +113,15 @@ public class Banque {
      * @return compte (si existant)
      */
     public CompteBancaire rechercheCompte(int num) {
-        int pos = -1;
-        boolean trouve = false;
-        for (int i = 0; i < this.comptes.size(); i++) {
-            if(this.comptes.get(i).donneNumero() == num){
-                pos = i;
+        int i = 0;
+        CompteBancaire c = null;
+        while(i < this.comptes.size() && c == null){
+            if(this.comptes.get(i).donneNumero()==num){
+                c = comptes.get(i);
             }
+            i++;
         }
-        if(trouve && pos >= 0){
-            return this.comptes.get(pos);
-        } else {
-            return null;
-        }
+        return c;
     }
 
     /**
@@ -152,7 +151,7 @@ public class Banque {
      */
     public boolean supprimerClient(String nomClient) {
         boolean peutsupprimer = true;
-        if(this.rechercheClient(nomClient) != null){
+        if(this.rechercheCompte(nomClient).size() > 0){
             peutsupprimer = false;
         }
         if(peutsupprimer){
@@ -190,23 +189,31 @@ public class Banque {
      * @return état de la transaction
      */
     public boolean transfertInterBancaire(int numeroCpteDebiteur, Banque banqueCrediteur, int numeroCpteCrediteur, double montant) {
+        /*
         CompteBancaire deb = this.rechercheCompte(numeroCpteDebiteur);
         CompteBancaire crd = banqueCrediteur.rechercheCompte(numeroCpteCrediteur);
-
+        boolean operation = false;
         //effectue les opérations de transfert
         if (deb != null && crd != null) {
             //vérifie si le montant du débiteur est supérieur au montant à retirer
             if (deb.consulter() < montant + 5.0) {
                 //montant invalide
-                return false;
+                operation = false;
             } else {
                 //montant valide
                 deb.debiter(montant + 5.0);
                 crd.crediter(montant);
+                operation = true;
             }
-            return true;
-        } else {
-            return false;
+        }
+        return operation;
+                */
+        if (this.equals(banqueCrediteur)) {
+            return this.rechercheCompte(numeroCpteDebiteur).transferer(banqueCrediteur.rechercheCompte(numeroCpteCrediteur),(int)montant);
+        }
+        else {
+            this.rechercheCompte(numeroCpteDebiteur).debiter(5);
+            return this.rechercheCompte(numeroCpteDebiteur).transferer(banqueCrediteur.rechercheCompte(numeroCpteCrediteur),(int)montant); 
         }
     }
 }
