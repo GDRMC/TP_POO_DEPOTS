@@ -1,3 +1,5 @@
+package gdr.tp.tp4biblio;
+
 import java.util.ArrayList;
 
 /**
@@ -8,16 +10,14 @@ import java.util.ArrayList;
  */
 public class BiblioMM
 {
-    private ArrayList<CD> cds;
-    private ArrayList<DVD> dvds;
+    private ArrayList<EltMM> liste;
 
     /**
      * Construit une bibliotheque vide.
      */
     public BiblioMM()
     {
-        this.cds = new ArrayList<CD>();
-        this.dvds = new ArrayList<DVD>();
+        this.liste = new ArrayList();
     }
 
     /**
@@ -26,7 +26,7 @@ public class BiblioMM
      */
     public void ajouterCD(CD unCD)
     {
-        this.cds.add(unCD);
+        this.liste.add(unCD);
     }
 
     /**
@@ -35,7 +35,7 @@ public class BiblioMM
      */
     public void ajouterDVD(DVD unDVD)
     {
-        this.dvds.add(unDVD);
+        this.liste.add(unDVD);
     }
 
     /**
@@ -44,12 +44,8 @@ public class BiblioMM
      */
     public void affiche()
     {
-        for(CD cd : this.cds) {
-            System.out.println(cd);   
-        }
-
-        for(DVD dvd : this.dvds) {
-            System.out.println(dvd);   
+        for(EltMM element : this.liste) {
+            System.out.println(element);   
         }
     }
 }
