@@ -12,6 +12,6 @@ public class ConteneurUrgent extends Conteneur {
     
     @Override
     public boolean conditionChargement(Colis c){
-        return ((super.donnePoids()+c.donnePoids()) < this.poidsMax);
+        return ((super.donnePoids()+c.donnePoids()) < this.poidsMax) && super.conditionChargement(c);
     }
 }

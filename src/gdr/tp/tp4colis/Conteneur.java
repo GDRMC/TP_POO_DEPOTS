@@ -40,7 +40,7 @@ public class Conteneur {
     }
     
     public boolean conditionChargement(Colis c){
-        return donneVolume()+c.donneVolume() > this.volumeMax;
+        return donneVolume()+c.donneVolume() < this.volumeMax;
     }
     
     public boolean ajout(Colis c){
