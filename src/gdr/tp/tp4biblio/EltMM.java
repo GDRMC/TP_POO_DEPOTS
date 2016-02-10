@@ -1,6 +1,6 @@
 package gdr.tp.tp4biblio;
 
-public abstract class EltMM {
+public class EltMM {
     
     private String titre;
     private int duree;
@@ -37,8 +37,18 @@ public abstract class EltMM {
         this.commentaire = str;
     }
     
+    public String donneType(){
+        if(this instanceof CD){
+            return "CD";
+        } else if(this instanceof DVD){
+            return "DVD";
+        } else {
+            return "EltMM";
+        }
+    }
+    
     public String toString() {
-        String s = "\nCD :\n";
+        String s = "";
         s += "Titre : " + this.donneTitre() + "\n";
         s += "Duree : " + this.donneDuree() + "\n";
         s += "Etat : ";

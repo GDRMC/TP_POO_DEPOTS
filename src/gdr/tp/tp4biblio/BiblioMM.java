@@ -48,4 +48,25 @@ public class BiblioMM
             System.out.println(element);   
         }
     }
+    
+    public ArrayList<EltMM> rechercherTitre(String str){
+        ArrayList<EltMM> ar = new ArrayList();
+        for(EltMM element : liste){
+            if(element.donneTitre().contains(str)){
+                ar.add(element);
+            }
+        }
+        return ar;
+    }
+    
+    public boolean emprunterTitre(String str){
+        ArrayList<EltMM> emprunt = this.rechercherTitre(str);
+        if(emprunt.size()==1 && emprunt.get(0).donneEtatRayon()){
+            emprunt.get(0).changeEtatRayon(false);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

@@ -30,9 +30,8 @@ public class DVD extends EltMM{
      * @return un chaine de caracteres decrivant l'objet
      */
     public String toString() {
-        String s = "";
+        String s = "\nDVD :\n";
         s += super.toString();
-        s += "Commentaires : " + this.donneCommentaires() + "\n";
         s += "Realisateur : " + this.realisateur + "\n";
         return s;
     }

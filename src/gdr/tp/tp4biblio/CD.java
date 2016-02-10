@@ -47,7 +47,7 @@ public class CD extends EltMM {
      * @return un chaine de caracteres decrivant l'objet
      */
     public String toString() {
-        String s = "";
+        String s = "\nCD :\n";
         s += super.toString();
         return s += "Artiste : " + this.artiste + "\npistes : " + this.nbPistes;
     }
