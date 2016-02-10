@@ -1,3 +1,4 @@
+package gdr.tp.tp4colis;
 
 /**
  * Represente un colis pouvant etre d'epos'e dans un conteneur.
