@@ -1,7 +1,15 @@
 package gdr.tp.tp4colis;
 
+/**
+ * Classe de test package Colis
+ * @author gdr
+ */
 public class LautrePetiteClasseDeTest {
     
+    /**
+     * Classe Main
+     * @param args
+     */
     public static void main(String[]args){
         Conteneur c1 = new Conteneur(25, 8);
         ConteneurUrgent c2 = new ConteneurUrgent(10, 4, 14);

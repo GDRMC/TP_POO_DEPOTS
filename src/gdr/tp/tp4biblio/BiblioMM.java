@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * La classe BiblioMM fournit un moyen de stocker des objets
  * CD et DVD. Une liste de tous les CD et DVD peut etre affichee
  * en mode texte.
- * 
+ * @author gdr
  */
 public class BiblioMM
 {
@@ -49,6 +49,11 @@ public class BiblioMM
         }
     }
     
+    /**
+     * Recherche un titre dans la bibliothèque (String.contains))
+     * @param str titre à rechercher
+     * @return liste de titres correspondants
+     */
     public ArrayList<EltMM> rechercherTitre(String str){
         ArrayList<EltMM> ar = new ArrayList();
         for(EltMM element : liste){
@@ -59,6 +64,11 @@ public class BiblioMM
         return ar;
     }
     
+    /**
+     * Emprunte un titre s'il correspond à un élément dans la bibliothèque
+     * @param str titre à emprunter
+     * @return état de l'opération
+     */
     public boolean emprunterTitre(String str){
         ArrayList<EltMM> emprunt = this.rechercherTitre(str);
         if(emprunt.size()==1 && emprunt.get(0).donneEtatRayon()){

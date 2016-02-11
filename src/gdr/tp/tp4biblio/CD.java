@@ -1,8 +1,9 @@
 package gdr.tp.tp4biblio;
 
 /**
+ * Classe CD
  * La classe CD represente un objet CD.
- *
+ * @author gdr
  */
 public class CD extends EltMM {
 
@@ -10,8 +11,7 @@ public class CD extends EltMM {
     private int nbPistes;
 
     /**
-     * Initialise un CD.
-     *
+     * Constructeur CD.
      * @param unTitre Le titre du CD.
      * @param unArtiste Le nom de l'artiste du CD.
      * @param pistes Le nombre de pistes du CD.
@@ -24,9 +24,8 @@ public class CD extends EltMM {
     }
 
     /**
-     * Donne le nom de l'artiste
-     *
-     * @return nom de l'artiste
+     * Donne le nom de l'artiste du CD
+     * @return artiste
      */
     public String donneArtiste() {
         return this.artiste;
@@ -34,7 +33,6 @@ public class CD extends EltMM {
 
     /**
      * Donne le nombre de pistes du CD.
-     *
      * @return nombre de pistes
      */
     public int donneNbPistes() {
@@ -43,7 +41,6 @@ public class CD extends EltMM {
 
     /**
      * Renvoie une description textuelle de l'objet
-     *
      * @return un chaine de caracteres decrivant l'objet
      */
     public String toString() {

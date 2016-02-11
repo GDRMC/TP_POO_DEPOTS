@@ -1,8 +1,8 @@
 package gdr.tp.tp4colis;
 
 /**
- * Represente un colis pouvant etre d'epos'e dans un conteneur.
- *
+ * Represente un colis pouvant etre chargé dans un conteneur.
+ * @author gdr
  */
 public class Colis {
 
@@ -12,8 +12,7 @@ public class Colis {
     private static int nbColis = 0; // permet de donner un numero aux colis
 
     /**
-     * Cr'ee un colis.
-     *
+     * Constructeur colis
      * @param poids poids en kg
      * @param volume volume en m3
      */
@@ -25,7 +24,6 @@ public class Colis {
 
     /**
      * Retourne le poids du colis en kg
-     *
      * @return le poids du colis
      */
     public int donnePoids() {
@@ -34,17 +32,25 @@ public class Colis {
 
     /**
      * Retourne le volume du colis en m3.
-     *
      * @return le volume du colis
      */
     public int donneVolume() {
         return this.volume;
     }
 
+    /**
+     * Affichage du colis
+     * @return
+     */
     public String toString() {
         return "poids = " + this.poids + ", volume = " + this.volume;
     }
 
+    /**
+     * Egalité de deux colis
+     * @param c colis à tester
+     * @return égaux ou non
+     */
     public boolean equals(Colis c) {
         if (c == null) {
             return false;
