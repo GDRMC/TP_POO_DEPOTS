@@ -1,7 +1,15 @@
 package gdr.tp.tp4biblio;
 
+/**
+ * Classe de Test
+ * @author gdr
+ */
 public class PetiteClasseDeTest {
     
+    /**
+     * Fonction Main
+     * @param args
+     */
     public static void main(String[]args){
         BiblioMM bi = new BiblioMM();
         CD cd = new CD("EP II", "Carpenter Brut", 6, 26);
