@@ -36,9 +36,9 @@ public abstract class ExpressionBooleenne {
     public String toString(){
         String toReturn = "";
         if(this instanceof Variable){
-            toReturn = a.toString();
+            toReturn = a;
         } else if(this instanceof ExpressionNegation){
-            toReturn = "non ("+a.toString()+")";
+            toReturn = "non ("+a+")";
         } else if(this instanceof ExpressionEt){
             toReturn = "("+getGauche().toString()+" et "+getDroite().toString()+")";
         } else if(this instanceof ExpressionOu){
